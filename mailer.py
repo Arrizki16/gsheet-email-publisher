@@ -12,16 +12,11 @@ class Mailer:
         self.sender_email = sender_email
         self.smtp_server = smtp_server
         self.port = port
-        self.subject = "[TESTING SCRIPT] Sertifikat Keikutsertaan Docker Mastery Bootcamp: From Zero to Hero"
-
+        self.subject = "Fill the email subject here!"
+        
 
     def set_body(self, recipient):
-        body = f"""<html><body><p>Dear {recipient['fullname']},</p>
-
-<p>Kami ingin mengucapkan terima kasih kepada Anda atas partisipasi dalam kegiatan <b>Docker Mastery Bootcamp: From Zero to Hero</b> yang diselenggarakan oleh Lab Arsitektur dan Jaringan Komputer. Kami berharap bahwa pelatihan ini memberikan manfaat yang besar bagi Anda dan membantu meningkatkan keterampilan Anda dalam menggunakan teknologi Docker. Dalam rangka mengapresiasi partisipasi Anda, kami ingin memberikan sertifikat keikutsertaan dalam kegiatan ini.</p>
-
-Salam hangat,<br>
-AJK</body></html>
+        body = f"""Write the subject here (html format)
 """
         return MIMEText(body, 'html')
 

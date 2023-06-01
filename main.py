@@ -6,7 +6,9 @@ from mailer import Mailer
 
 SERVICE_ACCOUNT_FILE = 'service-account.json'
 SPREADSHEET_ID = os.getenv('AJK_SPREADSHEET_PELATIHAN_DOCKER_ID')
-PASSWORD = os.getenv('MAIN_EMAIL_PASSWORD')
+MAIN_EMAIL = os.getenv('MAIN_EMAIL')
+MAIN_EMAIL_PASSWORD = os.getenv('MAIN_EMAIL_PASSWORD')
+SHARED_EMAIL = os.getenv('SHARED_EMAIL')
 
 if __name__ == "__main__":
     creds = service_account.Credentials.from_service_account_file(
@@ -36,5 +38,5 @@ if __name__ == "__main__":
         recipient = {"nrp": recipient_nrp, "fullname" : recipient_fullname, "email": recipient_email}
         recipients.append(recipient)
     
-    mailer = Mailer('deka.19051@mhs.its.ac.id', PASSWORD, 'ajk-if@its.ac.id')
+    mailer = Mailer(MAIN_EMAIL, MAIN_EMAIL_PASSWORD, SHARED_EMAIL)
     mailer.send_email_concurrently(recipients)
